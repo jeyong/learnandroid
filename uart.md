@@ -81,7 +81,10 @@ public void readUartBuffer(UartDevice uart) throws IOException {
 }
 
 ```
- * 불필요한 UART polling 막기위해 
+ * 불필요한 UART polling 막기
+   *  onUartDeviceDataAvailable() callback의 리턴값
+     * false : 자동으로 unregister
+     * true : 계속해서 수신
 ```java
 public class HomeActivity extends Activity {
     private UartDevice mDevice;
